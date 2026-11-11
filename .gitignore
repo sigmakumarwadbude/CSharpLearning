@@ -1,17 +1,20 @@
-# Visual Studio
-.vs/
-*.suo
-*.user
-
-# .NET build outputs
+# .NET build output
 bin/
 obj/
 
-# IDE files
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Visual Studio Code
 .vscode/
 
 # Logs
 *.log
+
+# NuGet
+*.nupkg
 
 # OS files
 Thumbs.db
