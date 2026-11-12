@@ -1,47 +1,56 @@
 ﻿
 using CSharpLearning.Lesson02.Models;
 
-// Application information
-string applicationName = "CSharpLearning";
+namespace CSharpLearning.Lesson02;
 
-// Read developer name from command-line arguments
-string developerName = args.Length > 0
-    ? string.Join(" ", args)
-    : "Unknown Developer";
+internal class Program
+{
+    // Application entry point
+    static void Main(string[] args)
+    {
+        // Application information
+        string applicationName = "CSharpLearning";
 
-// Learning information
-string learningModule = "Module 01 - Fundamentals";
+        // Read developer name from command-line arguments
+        string developerName = args.Length > 0
+            ? string.Join(" ", args)
+            : "Unknown Developer";
 
-string learningObjective =
-    "Master C# 14 and .NET 10 to become an Angular + .NET Full Stack Developer";
+        // Learning information
+        string learningModule = "Module 01 - Fundamentals";
 
-// Create Developer object
-Developer developer = new(
-    developerName,
-    "Angular + .NET Full Stack Developer",
-    learningModule,
-    learningObjective
-);
+        string learningObjective =
+            "Master C# 14 and .NET 10 to become an Angular + .NET Full Stack Developer";
 
-// Display application information
-Console.WriteLine("==============================================");
-Console.WriteLine("             APPLICATION INFORMATION         ");
-Console.WriteLine("==============================================");
+        // Create Developer object
+        Developer developer = new(
+            developerName,
+            "Angular + .NET Full Stack Developer",
+            learningModule,
+            learningObjective
+        );
 
-Console.WriteLine($"Application Name : {applicationName}");
-Console.WriteLine($"Developer Name   : {developer.Name}");
-Console.WriteLine($"Developer Role   : {developer.Role}");
-Console.WriteLine($"Current Date     : {developer.CreatedAt:MMMM dd, yyyy}");
+        // Display application information
+        Console.WriteLine("==============================================");
+        Console.WriteLine("             APPLICATION INFORMATION         ");
+        Console.WriteLine("==============================================");
 
-Console.WriteLine("----------------------------------------------");
-Console.WriteLine("               LEARNING DETAILS               ");
-Console.WriteLine("----------------------------------------------");
+        Console.WriteLine($"Application Name : {applicationName}");
+        Console.WriteLine($"Developer Name   : {developer.Name}");
+        Console.WriteLine($"Developer Role   : {developer.Role}");
+        Console.WriteLine($"Current Date     : {developer.CreatedAt:MMMM dd, yyyy}");
 
-Console.WriteLine($"Learning Module  : {developer.LearningModule}");
-Console.WriteLine($"Learning Objective:");
+        Console.WriteLine("----------------------------------------------");
+        Console.WriteLine("               LEARNING DETAILS               ");
+        Console.WriteLine("----------------------------------------------");
 
-Console.WriteLine(developer.LearningObjective);
+        Console.WriteLine($"Learning Module  : {developer.LearningModule}");
+        Console.WriteLine("Learning Objective:");
 
-Console.WriteLine("==============================================");
-Console.WriteLine("Welcome to C# 14 and .NET 10 Learning!");
-Console.WriteLine("==============================================");
+        Console.WriteLine(developer.LearningObjective);
+
+        Console.WriteLine("==============================================");
+        Console.WriteLine("Welcome to C# 14 and .NET 10 Learning!");
+        Console.WriteLine("==============================================");
+    }
+}
