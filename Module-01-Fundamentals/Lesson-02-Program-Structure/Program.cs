@@ -1,14 +1,37 @@
-﻿
+﻿using System.Globalization;
 using CSharpLearning.Employees;
 using CSharpLearning.Departments;
+
+// Read command-line arguments
+// args[0] = Employee Name
+// args[1] = Employee Salary
+
+string employeeName = args.Length > 0
+    ? args[0]
+    : "Sigma Wadbude";
+
+decimal employeeSalary = 120000;
+
+if (args.Length > 1 &&
+    !decimal.TryParse(
+        args[1],
+        NumberStyles.Number,
+        CultureInfo.InvariantCulture,
+        out employeeSalary))
+{
+    Console.WriteLine("Invalid salary. Please enter a valid number.");
+    return;
+}
+
+
 
 // Create Employee objects
 Employee employee = new(
     101,
     1,
-    "Sigma Wadbude",
+    employeeName,
     "sigma@example.com",
-    120000
+    employeeSalary
 );
 
 Employee employeeWithPhone = new(
