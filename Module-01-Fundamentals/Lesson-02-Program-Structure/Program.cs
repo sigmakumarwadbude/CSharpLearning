@@ -1,56 +1,52 @@
 ﻿
-using CSharpLearning.Lesson02.Models;
+using CSharpLearning.Employees;
+using CSharpLearning.Departments;
 
 namespace CSharpLearning.Lesson02;
 
 internal class Program
 {
-    // Application entry point
     static void Main(string[] args)
     {
-        // Application information
-        string applicationName = "CSharpLearning";
-
-        // Read developer name from command-line arguments
-        string developerName = args.Length > 0
-            ? string.Join(" ", args)
-            : "Unknown Developer";
-
-        // Learning information
-        string learningModule = "Module 01 - Fundamentals";
-
-        string learningObjective =
-            "Master C# 14 and .NET 10 to become an Angular + .NET Full Stack Developer";
-
-        // Create Developer object
-        Developer developer = new(
-            developerName,
-            "Angular + .NET Full Stack Developer",
-            learningModule,
-            learningObjective
+        // Create Employee objects
+        Employee employee = new(
+            101,
+            1, // DepartmentId
+            "Sigma Wadbude",
+            "sigma@example.com",
+            120000
         );
 
-        // Display application information
-        Console.WriteLine("==============================================");
-        Console.WriteLine("             APPLICATION INFORMATION         ");
-        Console.WriteLine("==============================================");
+        Employee employeeWithPhone = new(
+            102,
+            1, // DepartmentId
+            "John Doe",
+            "john@example.com",
+            130000,
+            "9876543210"
+        );
 
-        Console.WriteLine($"Application Name : {applicationName}");
-        Console.WriteLine($"Developer Name   : {developer.Name}");
-        Console.WriteLine($"Developer Role   : {developer.Role}");
-        Console.WriteLine($"Current Date     : {developer.CreatedAt:MMMM dd, yyyy}");
+        // Create Department object
+        Department department = new(
+            1,
+            "Software Engineering",
+            "Pune",
+            "Responsible for software development and maintenance"
+        );        
 
-        Console.WriteLine("----------------------------------------------");
-        Console.WriteLine("               LEARNING DETAILS               ");
-        Console.WriteLine("----------------------------------------------");
+        // Display Employee information
+        DisplayEmployee(employee);
+        DisplayEmployee(employeeWithPhone);
+    }
 
-        Console.WriteLine($"Learning Module  : {developer.LearningModule}");
-        Console.WriteLine("Learning Objective:");
-
-        Console.WriteLine(developer.LearningObjective);
-
-        Console.WriteLine("==============================================");
-        Console.WriteLine("Welcome to C# 14 and .NET 10 Learning!");
-        Console.WriteLine("==============================================");
+    private static void DisplayEmployee(Employee employee)
+    {
+        Console.WriteLine($"Employee ID   : {employee.Id}");
+        Console.WriteLine($"Department ID : {employee.DepartmentId}");
+        Console.WriteLine($"Employee Name : {employee.Name}");
+        Console.WriteLine($"Email         : {employee.Email}");
+        Console.WriteLine($"Salary        : {employee.Salary:C}");
+        Console.WriteLine(
+            $"Phone Number  : {employee.PhoneNumber ?? "Not provided"}");
     }
 }
